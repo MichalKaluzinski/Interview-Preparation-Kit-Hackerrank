@@ -1,1 +1,1 @@
-# Interview-Preparation-Kit---Hackerrank
+# Interview-Preparation-Kit-Hackerrank
