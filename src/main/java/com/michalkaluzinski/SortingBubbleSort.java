@@ -6,15 +6,10 @@ public class SortingBubbleSort {
 
   // Complete the countSwaps function below.
   static void countSwaps(int[] a) {
-    boolean canSwap = true;
     int swaps = 0;
     int maxIndex = a.length - 1;
     int currentIndex = 0;
-    while (canSwap) {
-      if (maxIndex == currentIndex) {
-        canSwap = false;
-        break;
-      }
+    while (maxIndex != currentIndex) {
       if (a[currentIndex] > a[currentIndex + 1]) {
         int tmp = a[currentIndex];
         a[currentIndex] = a[currentIndex + 1];
