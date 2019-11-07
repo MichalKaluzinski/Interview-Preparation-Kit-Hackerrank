@@ -1,32 +1,33 @@
-package com.michalkaluzinski;
+package com.michalkaluzinski.solutions;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.HashSet;
 import java.util.Scanner;
-import java.util.Set;
 
 /**
- * 
  * @author Michal
- * https://www.hackerrank.com/challenges/sock-merchant/
+ * @url https://www.hackerrank.com/challenges/jumping-on-the-clouds/
  */
-public class SolutionSockMerchant {
+public class SolutionJumpingOnTheClouds {
 
-  // Complete the sockMerchant function below.
-  static int sockMerchant(int n, int[] ar) {
-    Set<Integer> colors = new HashSet<>();
-    int pairs = 0;
-    for (int i = 0; i < ar.length; i++) {
-      if (!colors.contains(ar[i])) {
-        colors.add(ar[i]);
+  // Complete the jumpingOnClouds function below.
+  static int jumpingOnClouds(int[] c) {
+    int jumps = 0;
+
+    for (int i = 0; i < c.length; ) {
+
+      if (i + 2 < c.length && c[i + 2] == 0) {
+        jumps++;
+        i += 2;
+      } else if (i + 1 < c.length) {
+        jumps++;
+        i++;
       } else {
-        pairs++;
-        colors.remove(ar[i]);
+        i++;
       }
     }
-    return pairs;
+    return jumps;
   }
 
   private static final Scanner scanner = new Scanner(System.in);
@@ -38,17 +39,17 @@ public class SolutionSockMerchant {
     int n = scanner.nextInt();
     scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
 
-    int[] ar = new int[n];
+    int[] c = new int[n];
 
-    String[] arItems = scanner.nextLine().split(" ");
+    String[] cItems = scanner.nextLine().split(" ");
     scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
 
     for (int i = 0; i < n; i++) {
-      int arItem = Integer.parseInt(arItems[i]);
-      ar[i] = arItem;
+      int cItem = Integer.parseInt(cItems[i]);
+      c[i] = cItem;
     }
 
-    int result = sockMerchant(n, ar);
+    int result = jumpingOnClouds(c);
 
     bufferedWriter.write(String.valueOf(result));
     bufferedWriter.newLine();

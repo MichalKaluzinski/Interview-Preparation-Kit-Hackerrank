@@ -1,4 +1,4 @@
-package com.michalkaluzinski;
+package com.michalkaluzinski.solutions;
 
 import java.util.HashMap;
 import java.util.Map;

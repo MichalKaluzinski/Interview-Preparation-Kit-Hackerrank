@@ -1,32 +1,20 @@
-package com.michalkaluzinski;
+package com.michalkaluzinski.solutions;
 
 import java.util.Scanner;
+import com.michalkaluzinski.model.Node;
 
-class Node {
-  Node left;
-  Node right;
-  int data;
+class SolutionBinarySearchTreeLowestCommonAncestor {
 
-  Node(int data) {
-    this.data = data;
-    left = null;
-    right = null;
-  }
-}
+  public static Node lca(Node root, int v1, int v2) {
 
-class SolutionTreeHeightOfABinaryTree {
-
-  public static int height(Node root) {
-
-    int rightHeight = 0;
-    int leftHeight = 0;
-    if (root.left != null) {
-      leftHeight += height(root.left) + 1;
+    if (root.data < v1 && root.data < v2) {
+      return lca(root.right, v1, v2);
     }
-    if (root.right != null) {
-      rightHeight += height(root.right) + 1;
+    if (root.data > v1 && root.data > v2) {
+      return lca(root.left, v1, v2);
     }
-    return Math.max(leftHeight, rightHeight);
+
+    return root;
   }
 
   public static Node insert(Node root, int data) {
@@ -53,8 +41,10 @@ class SolutionTreeHeightOfABinaryTree {
       int data = scan.nextInt();
       root = insert(root, data);
     }
+    int v1 = scan.nextInt();
+    int v2 = scan.nextInt();
     scan.close();
-    int height = height(root);
-    System.out.println(height);
+    Node ans = lca(root, v1, v2);
+    System.out.println(ans.data);
   }
 }

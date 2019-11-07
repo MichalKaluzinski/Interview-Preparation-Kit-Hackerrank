@@ -1,4 +1,4 @@
-package com.michalkaluzinski;
+package com.michalkaluzinski.solutions;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
